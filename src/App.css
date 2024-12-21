@@ -1,48 +1,157 @@
-/* src/App.css */
-.app-container {
-  max-width: 600px;
+/* App.css */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success-color: #059669;
+  --success-bg: #ecfdf5;
+  --background: #f9fafb;
+  --card-bg: white;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: var(--background);
+  padding: 3rem 1rem;
+}
+
+.container {
+  max-width: 48rem;
   margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.app-title {
+.header {
   text-align: center;
-  color: #333;
+  margin-bottom: 2rem;
 }
 
-.text-input {
+.header .icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary-color);
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin-top: 1rem;
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.input-card,
+.output-card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+textarea {
   width: 100%;
-  height: 150px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  font-size: 16px;
+  height: 10rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  resize: none;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .correct-button {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.2s;
 }
 
-.correct-button:hover {
-  background-color: #0056b3;
+.correct-button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
 }
 
-.corrected-text-container {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
+.correct-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.correct-button .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.output-card h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.corrected-content {
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.text-line {
+  margin: 0.5rem 0;
+}
+
+.correction {
+  padding: 0.25rem 0;
+}
+
+.highlight {
+  background-color: var(--success-bg);
+  color: var(--success-color);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .app {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app {
+    padding: 3rem 2rem;
+  }
 }
