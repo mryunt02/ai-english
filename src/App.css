@@ -3,7 +3,9 @@
   --primary-color: #2563eb;
   --primary-hover: #1d4ed8;
   --success-color: #059669;
+  --fail-color: #dc2626;
   --success-bg: #ecfdf5;
+  --fail-bg: #fef2f2;
   --background: #f9fafb;
   --card-bg: white;
   --text-primary: #111827;
@@ -143,7 +145,10 @@ textarea:focus {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
 }
-
+.highlight.incorrect {
+  color: var(--fail-color);
+  background-color: var(--fail-bg);
+}
 @media (min-width: 640px) {
   .app {
     padding: 3rem 1.5rem;
